@@ -8,7 +8,6 @@
         body {
             font-size: 140%;
             font-family: Verdana, sans-serif;
-            text-align: center;
         }
 
         #main {
@@ -17,7 +16,7 @@
             padding: 0 10px 0 10px;
         }
 
-        h2 {
+        h2{
             text-align: center;
         }
 
@@ -35,26 +34,11 @@
     <div id='main'>
         <h2>LED Control</h2>
         <form id='form' action='LEDON' method='GET'>
-            <p>Brillo
-            </p>
-            <input type='range' min='0' max='255' name='brillo'>
-            <p>
-                Tiempo alto
-            </p>
-            <input type='range' min='0' max='2500' name='on'>
-
-            <p>
-                Tiempo bajo
-            </p>
-            <input type='range' min='0' max='2500' name='off'>
-
-        </p>
-
-            <input class='button' type='submit' value='Configurar'>
+            <input class='button' type='submit' value='Turn of the LED' >
         </form><br>
     </div>
     <script>
     </script>
 </body>
 
-</html>
+</html>;

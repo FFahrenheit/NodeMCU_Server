@@ -31,6 +31,7 @@ void setup()
  
     boolean conn = WiFi.softAP(AP_NameChar, WiFiPassword);
     server.begin();
+    Serial.begin(9600);
  
 } // void setup()
  
@@ -41,10 +42,14 @@ void loop()
  
     // Check if a client has connected
     WiFiClient client = server.available();
+    
+
     if (!client)  {  return;  }
  
     // Read the first line of the request
     request = client.readStringUntil('\r');
+
+    Serial.println(request);
  
     if       ( request.indexOf("LEDON") > 0 )  { digitalWrite(LED_Pin, HIGH);  }
     else if  ( request.indexOf("LEDOFF") > 0 ) { digitalWrite(LED_Pin, LOW);   }
@@ -54,12 +59,12 @@ void loop()
     if (digitalRead(LED_Pin) == HIGH) 
     {
         // the LED is on so the button needs to say turn it off
-       html_2 = "<form id='F1' action='LEDOFF'><input class='button' type='submit' value='Turn of the LED' ></form><br>";
+       html_2 = "<form id='F1' action='LEDOFF' method='GET'><input class='button' name='xd' type='submit' value='Turn of the LED' ></form><br>";
     }
     else                              
     {
         // the LED is off so the button needs to say turn it on
-        html_2 = "<form id='F1' action='LEDON'><input class='button' type='submit' value='Turn on the LED' ></form><br>";
+        html_2 = "<form id='F1' action='LEDON' method='GET'><input class='button' name='xd' type='submit' value='Turn on the LED' ></form><br>";
     }
  
  
