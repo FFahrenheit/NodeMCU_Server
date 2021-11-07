@@ -1,7 +1,7 @@
 import io
 
 def main():
-    with open('index.txt', 'r', encoding='utf-8', newline='') as source:
+    with open('index.html', 'r', encoding='utf-8', newline='') as source:
         text = source.read().split('\n')
         print(len(text))
 

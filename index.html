@@ -34,19 +34,19 @@
 <body>
     <div id='main'>
         <h2>LED Control</h2>
-        <form id='form' action='LEDON' method='GET'>
+        <form id='form' action='LED' method='GET'>
             <p>Brillo
             </p>
-            <input type='range' min='0' max='255' name='brillo'>
+            <input type='range' min='0' max='255' name='brillo' id='brillo'>
             <p>
                 Tiempo alto
             </p>
-            <input type='range' min='0' max='2500' name='on'>
+            <input type='range' min='0' max='2500' name='on' id='on'>
 
             <p>
                 Tiempo bajo
             </p>
-            <input type='range' min='0' max='2500' name='off'>
+            <input type='range' min='0' max='2500' name='off' id='off'>
 
         </p>
 
@@ -54,6 +54,17 @@
         </form><br>
     </div>
     <script>
+        const brillo = document.getElementById('brillo');
+        const on = document.getElementById('on');
+        const off = document.getElementById('off');
+
+        window.onload = () => {
+            let params = (new URL(document.location)).searchParams;
+            brillo.value = params.get('brillo') || 128;
+            on.value = params.get('on') || 1250;
+            off.value = params.get('off') || 1250;
+
+        }
     </script>
 </body>
 
